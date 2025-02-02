@@ -1,0 +1,32 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="en">
+<head>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Мемориальный сайт</title>
+</head>
+<body>
+    <div class="container">
+        {% for sp in post %}
+            <h1>{{ sp.title }}</h1>
+            {% if sp.main_picture %}
+                <img src="{{ sp.main_picture.url }}" alt="{{ sp.title }}">
+            {% else %}
+                <p>Изображение отсутствует.</p>
+            {% endif %}
+            <div class="content">
+                <h2>История</h2>
+                <p>{{ sp.content }}</p>
+                <blockquote>
+                    "Этот момент навсегда останется в наших сердцах."
+                </blockquote>
+                <p>Мы всегда будем помнить <span class="highlight">этого замечательного питомца</span>.</p>
+            </div>
+        {% endfor %}
+        <footer>
+            &copy; 2025 Мемориальный сайт. Все права защищены.
+        </footer>
+    </div>
+</body>
+</html>
