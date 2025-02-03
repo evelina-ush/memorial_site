@@ -1,11 +1,28 @@
-<!DOCTYPE html>
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Мемориальный сайт</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new_style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <h1>{{ post.title }}</h1>
+    <img src="{{ post.main_picture.url }}" alt="{{ post.title }}">
+    <p>{{ post.content }}</p>
+    <button type="button">
+    <a href="{% url 'redirect_to_story_1' %}">Сима и её гнёздышко</a>
+    </button>
+    <button type="button">
+    <a href="{% url 'redirect_to_story_2' %}">Сима всегда была рядом</a>
+    </button>
+    <button type="button">
+    <a href="{% url 'redirect_to_story_3' %}">Сима и интересные позы</a>
+    </button>
+    <button type="button">
+    <a href="{% url 'redirect_to_story_4' %}">Сима и ортопедическая подушка</a>
+    </button>
+    <p>Мы всегда будем помнить <span class="highlight">этого замечательного питомца</span>.</p>
 </body>
 </html>
